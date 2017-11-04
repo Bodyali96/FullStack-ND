@@ -1,16 +1,17 @@
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #585853;
     font-weight: 300;
-    padding: 50px 0px 0px 0px;
+    padding: 50px;
     z-index: 0;
 }
+
 .row-header {
     margin: 0px auto;
     padding: 0px 0px;
 }
   
-  .row-content {
+.row-content {
     margin: 0px auto;
     padding: 50px 0px;
     border-bottom: 1px ridge;
@@ -23,33 +24,43 @@ body {
     margin: 0px 0px;
     padding: 20px 0px;
 }
- .fa a{
+
+ .fa a {
      color: #0f0f0f;
  }
-  address {
+
+address {
     font-size: 80%;
     margin: 0px;
     color: #0f0f0f;
 }
+
 .text-muted {
-    color: #BCBBBB;
+    color: #bcbbbb;
 }
+
 .text-thin {
     font-weight: 100;
 }
+
 .title-super {
     font-size: 60px;
 }
+
 .title-logo {
     margin-top: 20px;
 }
+
 .carousel {
     background: rgb(255, 255, 255);
+    margin-bottom: 20px;
 }
+
 .carousel-item {
     height: 300px;
 }
-.carousel-item img {
+
+.carousel-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -77,4 +88,8 @@ body {
 
 .caption {
     text-shadow: 2px 2px 3px #0f0f0f;
+}
+
+.align-right{
+    text-align: right;
 }
