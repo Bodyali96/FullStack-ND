@@ -64,7 +64,7 @@ address {
     position: absolute;
     top: 0;
     left: 0;
-    min-height: 300px;
+    min-height: auto;
 }
 
 #carousel-button {
@@ -82,7 +82,7 @@ address {
 }
 
 .img-thumbnail {
-    height: 20%;
+    height: auto;
     width: auto;
 }
 

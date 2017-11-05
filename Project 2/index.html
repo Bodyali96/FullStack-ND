@@ -9,91 +9,94 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <!-- Bootstrap CSS -->
         <!-- build:css css/main.css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap-social.css">
         <link href="css/style.css" rel="stylesheet">
         <!-- endbuild -->
         
     </head>
     <body>
-       <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="title-logo" src="images/logo.png" alt="Udacity logo">
-                </div>
-                <div class="col-md-8 text-right text-uppercase">
-                    <h1 class="title-super text-thin">Mostafa Elsheikh</h1>
-                    <h4>Software Developer</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="row row-content">
-                <div class="col">
-                    <div id="mycarousel" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
-                                <img class="carousel-img d-block img-fluid"
-                                    src="images/1.jpg" alt="NTL Graduation">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h2 class="caption"><span class="badge badge-danger">NTL</span> Graduation Concert</h2>
-                                    <p class="hidden-xs-down caption">Certified from Egyptian Ministry of Communications and Information Technology<br>
-                                        Certified from Technology Innovation and Entrepreneurship Center</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="carousel-img d-block img-fluid"
-                                    src="images/2.jpg" alt="Buffet">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h2 class="caption">Student</h2>
-                                    <p class="hidden-xs-down caption">Studies Computer Engineering at Alexandria Higher Institute of Engineering and Technology.<br>
-                                    Expected to be graduated 2018.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#mycarousel" data-slide-to="1"></li>
-                        </ol>
-                        <a href="#mycarousel" role="button" class="carousel-control-prev" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a href="#mycarousel" role="button" class="carousel-control-next" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-                        <button class="btn btn-danger btn-sm" id="carousel-button">
-                            <span class="fa fa-pause"></span>
-                        </button>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="title-logo" src="images/logo.png" alt="Udacity logo">
+                    </div>
+                    <div class="col-md-8 text-right text-uppercase">
+                        <h1 class="title-super text-thin">Mostafa Elsheikh</h1>
+                        <h4>Software Developer</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-muted">Featured work</h2>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-md-4">
-                            <img class="card-img img-thumbnail" src="images/Roamer.PNG" alt="Roamer Run">
-                            <h3 class="text-uppercase">Roamer Run</h3>
-                            <a href="https://github.com/Sasa94s/GameDesDev/tree/master/Capstone%20Project/">https://github.com/Sasa94s/GameDesDev<a/>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="card-img img-thumbnail" src="images/8puzzle.png" alt="">
-                            <h3 class="text-uppercase">Eight Puzzle</h3>
-                            <a href="https://github.com/Sasa94s/EightPuzzle">https://github.com/Sasa94s/EightPuzzle<a/>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="card-img img-thumbnail" src="images/airways.jpg" alt="">
-                            <h3 class="text-uppercase">Airways</h3>
-                            <a href="https://github.com/Sasa94s/AirwaysDatabase">https://github.com/Sasa94s/AirwaysDatabase<a/>
-                        </div>
+                        <hr>
                     </div>
                 </div>
             </div>
-       </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="row row-content">
+                    <div class="col">
+                        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <img class="carousel-img d-block img-fluid"
+                                        src="images/1.jpg" alt="NTL Graduation">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h2 class="caption"><span class="badge badge-danger">NTL</span> Graduation Concert</h2>
+                                        <p class="hidden-xs-down caption">Certified from Egyptian Ministry of Communications and Information Technology<br>
+                                            Certified from Technology Innovation and Entrepreneurship Center</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="carousel-img d-block img-fluid"
+                                        src="images/2.jpg" alt="Buffet">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h2 class="caption">Student</h2>
+                                        <p class="hidden-xs-down caption">Studies Computer Engineering at Alexandria Higher Institute of Engineering and Technology.<br>
+                                        Expected to be graduated 2018.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#mycarousel" data-slide-to="1"></li>
+                            </ol>
+                            <a href="#mycarousel" role="button" class="carousel-control-prev" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a href="#mycarousel" role="button" class="carousel-control-next" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                            <button class="btn btn-danger btn-sm" id="carousel-button">
+                                <span class="fa fa-pause"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h2 class="text-muted">Featured work</h2>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img class="card-img img-thumbnail" src="images/Roamer.PNG" alt="Roamer Run"/>
+                        <h3 class="text-uppercase">Roamer Run</h3>
+                        <a href="https://github.com/Sasa94s/GameDesDev/tree/master/Capstone%20Project/">https://github.com/Sasa94s/GameDesDev</a>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="card-img img-thumbnail" src="images/8puzzle.png" alt="">
+                        <h3 class="text-uppercase">Eight Puzzle</h3>
+                        <a href="https://github.com/Sasa94s/EightPuzzle">https://github.com/Sasa94s/EightPuzzle</a>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="card-img img-thumbnail" src="images/airways.jpg" alt=""/>
+                        <h3 class="text-uppercase">Airways</h3>
+                        <a href="https://github.com/Sasa94s/AirwaysDatabase">https://github.com/Sasa94s/AirwaysDatabase</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+            
     </body>
     <footer class="footer">
         <div class="container">
@@ -131,9 +134,9 @@
     </footer>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <!-- build:js js/main.js -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
     <!-- endbuild --> 
     
