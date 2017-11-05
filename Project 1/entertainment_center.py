@@ -1,5 +1,5 @@
 import media
-import fresh_tomatoes
+import fresh_potatoes
 
 thor_ragnarok = media.Movie("Thor: Ragnarok",
                         "Imprisoned, the mighty Thor finds himself"
@@ -20,8 +20,6 @@ jigsaw = media.Movie("Jigsaw",
                      "M/MV5BNmRiZDM4ZmMtOTVjMi00YTNlLTkyNjMtMjI2OTAxNjgwMWM1XkEyXkFqcGdeQXVyMjMxOTE0ODA@."
                      "_V1_SY1000_CR0,0,648,1000_AL_.jpg",
                      "https://www.youtube.com/watch?v=vPP6aIw1vgY")
-# print(avatar.storyline)
-# avatar.show_trailer()
 
 blade_runner = media.Movie("Blade Runner 2049",
                         "A young blade runner's discovery of a long-buried secret leads him"
@@ -57,5 +55,6 @@ it = media.Movie("Hunger Games",
                            "M/MV5BOTE0NWEyNDYtYWI5MC00MWY0LTg1NDctZjAwMjkyMWJiNzk1XkEyXkFqcGdeQXVyNjk5NDA3OTk@."
                            "_V1_SY1000_CR0,0,674,1000_AL_.jpg",
                            "https://www.youtube.com/watch?v=hAUTdjf9rko")
+
 movies = [thor_ragnarok, jigsaw, blade_runner, only_the_brave, the_foreigner, it]
-fresh_tomatoes.open_movies_page(movies)
+fresh_potatoes.open_movies_page(movies)
