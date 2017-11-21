@@ -35,4 +35,4 @@ If you need to bring the virtual machine back online (with `vagrant up`), do so 
 
 Change your directory to `cd /vagrant/Backup/`, unzip `newsdata.zip` archive then load the data using this command `psql -d news -f newsdata.sql`
 
-To execute the program, run `python3 newsdata.py` from the command line.
+To execute the program, run `python3 log_analysis.py` from the command line.
