@@ -101,7 +101,7 @@ def print_result(msg,
                                                    result[1],
                                                    show_pplar * 'views',
                                                    show_errors * '%'))
-
+	print()
 
 if __name__ == '__main__':
     articles = get_result_set(query1)  # loading top articles
