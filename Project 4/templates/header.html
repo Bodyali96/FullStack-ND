@@ -1,5 +1,34 @@
-{% block navbar %}
-  <a class="navbar-brand text-light" href="{{ url_for('show_restaurants') }}">
-    Restaurant Menu
-  </a>
-{% endblock %}
+<div class="container-fluid mb-4">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url_for('show_catalog') }}">
+        <img src="{{ url_for('static', filename='images/logo1.png') }}" class="img-fluid" width="150" alt="Catalog">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"><span class="fa fa-home"></span> Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-list-alt"></span> Categories</a>
+                <ul class="dropdown-menu" id="categoriesMenu" aria-labelledby="dropdown01">
+                    {% for category in categories %}
+                    <a class="dropdown-item" href="#">{{ category['name'] }}</a>
+                    {% endfor %}
+                </ul>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 d-none d-lg-block">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="fa fa-search"></span> Search</button>
+            </form>
+            <div class="ml-sm-2">
+                <button type="button" class="btn btn-info my-2 my-sm-0"><span class="fa fa-sign-in"></span> Login</button>
+            </div>
+        </div>
+    </nav>
+
+</div>

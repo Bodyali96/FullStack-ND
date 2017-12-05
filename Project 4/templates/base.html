@@ -2,17 +2,15 @@
 <html lang="en">
     <head>
         {% block head %}
-        {% include 'head.html' %}
+            {% include 'head.html' %}
         {% endblock %}
     </head>
 
     <body>
         <header>
-            <nav class="navbar navbar-light bg-dark mb-4">
-                {% block header %}
+            {% block header %}
                 {% include 'header.html' %}
-                {% endblock %}
-            </nav>
+            {% endblock %}
         </header>
 
 
@@ -27,7 +25,7 @@
         </footer>
 
         {% block bodytail %}
-        {% include 'tail.html' %}
+            {% include 'tail.html' %}
         {% endblock %}
     </body>
 </html>
