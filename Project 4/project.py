@@ -6,6 +6,13 @@ from database_setup import Base, Category, Item
 app = Flask(__name__)
 
 
+engine = create_engine('sqlite:///catalog.db')
+Base.metadata.bind = engine
+
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+
+
 categories = [{'name': 'Soccer', 'id': '1'},
             {'name': 'Basketball', 'id': '2'},
             {'name': 'Baseball', 'id': '3'},

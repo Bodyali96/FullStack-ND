@@ -53,22 +53,27 @@ items = []
 items.append(Item(name='Footwear',
                   description='These shoes provide better traction on grass, '
                               'which increases player’s ability to stay on their feet.',
-                  category_id='1'))
+                  category_id='1',
+                  user_id='1'))
 items.append(Item(name='Soccer Socks',
                   description='Soccer socks are extremely long. They cover shin-guards.',
-                  category_id='1'))
+                  category_id='1',
+                  user_id='1'))
 items.append(Item(name='Shin-Guards',
                   description='Shin-guards protect player’s shins, a vulnerable part of '
                               'a player’s body that often gets kicked.',
-                  category_id='1'))
+                  category_id='1',
+                  user_id='1'))
 items.append(Item(name='Soccer Ball',
                   description='Soccer balls allows players to train and '
                               'play individually or with friends outside of practice.',
-                  category_id='1'))
+                  category_id='1',
+                  user_id='1'))
 items.append(Item(name='Water Bottle',
                   description='Purchase a fairly large water bottle that you can fill '
                               'up before every practice and game.',
-                  category_id='1'))
+                  category_id='1',
+                  user_id='1'))
 # Basketball
 items.append(Item(name='Ball',
                   description='Official size of a basketball is 29.5 to 30 inches in '
@@ -76,85 +81,104 @@ items.append(Item(name='Ball',
                               'circumference for women\'s game. It should weigh 18'
                               ' to 22 ounces. When bounced off 6 feet from the floor,'
                               ' a well inflated ball should bounce 49 to 54 inches in height.',
-                  category_id='2'))
+                  category_id='2',
+                  user_id='1'))
 items.append(Item(name='Shoes',
                   description='These shoes are specially designed to maintain high '
                               'traction on the basketball court.',
-                  category_id='2'))
+                  category_id='2',
+                  user_id='1'))
 items.append(Item(name='Basketball Shooting',
                   description='The hoop or basket is a horizontal metallic rim, circular in shape.',
-                  category_id='2'))
+                  category_id='2',
+                  user_id='1'))
 items.append(Item(name='Backboard',
                   description='The backboard is the rectangular board that is placed '
                               'behind the rim. It helps give better rebound to the ball. '
                               'The backboard is about 1800mm in size horizontally and '
                               '1050mm vertically.',
-                  category_id='2'))
+                  category_id='2',
+                  user_id='1'))
 # Baseball
 items.append(Item(name='Bat',
                   description='A rounded, solid wooden or hollow aluminum bat. '
                               'Wooden bats are traditionally made from ash wood, '
                               'though maple and bamboo is also sometimes used',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Ball',
                   description='A cork sphere, tightly wound with layers of yarn '
                               'or string and covered with a stitched leather coat.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Base',
                   description='One of four corners of the infield which must be touched '
                               'by a runner in order to score a run; more specifically, '
                               'they are canvas bags (at first, second, and third base) '
                               'and a rubber plate (at home).',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Glove',
                   description='Leather gloves worn by players in the field. '
                               'Long fingers and a webbed "KKK" between the thumb and '
                               'first finger allows the fielder to catch the ball more easily.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Catcher\'s mitt',
                   description='Leather mitt worn by catchers. It is much wider than a '
                               'normal fielder\'s glove and the four fingers are connected.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='First baseman\'s mitt',
                   description='Leather mitt worn by first basemen. It is longer and '
                               'wider than a standard fielder\'s glove.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Batting gloves',
                   description='Gloves often worn on one or both hands by the batter.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Batting helmet',
                   description='Helmet worn by batter to protect the head and the ear '
                               'facing the pitcher from the ball.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Baseball cap',
                   description='Designed to shade the eyes from the sun, this hat '
                               'design has become popular with the general public.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Catcher\'s helmet ',
                   description='Newer styles feature a fully integrated helmet '
                               'and mask, similar to a hockey goalie mask.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Jockstrap with cup pocket',
                   description='An undergarment worn by boys and men for '
                               'support of the testicles and penis during sports.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Protective cup',
                   description='designed to protect the testicles and groin from '
                               'impact of a baseball, baseball bat, cleats, '
                               'or any other moving object.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Sunglasses',
                   description='Worn to shade the eyes from the sun.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Baseball cleats',
                   description='Baseball specific shoes worn by the player for better traction. '
                               'The cleats themselves are either rubber or metal.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 items.append(Item(name='Baseball doughnut',
                   description='A weighted ring that fits over the end of a baseball '
                               'bat, used for warming up during a baseball game. '
                               'A doughnut can help increase bat speed.',
-                  category_id='3'))
+                  category_id='3',
+                  user_id='1'))
 # Frisbee
 items.append(Item(name='White Discraft Ultra-Star Disc',
                   description='The Discraft Ultra-Star is the most common disc found '
@@ -167,7 +191,8 @@ items.append(Item(name='White Discraft Ultra-Star Disc',
                               'it\'s what has been used for years. So if you\'re looking '
                               'for the most popular item in ultimate frisbee, '
                               'the White Discraft Ultra-Star is it.',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 items.append(Item(name='Ultimate Disc Bundles',
                   description='Ultimate Disc Bundles are a great way to get a package '
                               'of ultimate gear for a reduced price. Many people prefer '
@@ -177,233 +202,287 @@ items.append(Item(name='Ultimate Disc Bundles',
                               'to have back up discs for when the disc you\'re currently '
                               'using gets damaged or lost. A disc that is over used '
                               'will not fly the way it was intended.',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 items.append(Item(name='Orange Discraft Ultra-Star Disc',
                   description='Orange is one of the most popular colored ultimate discs on the field.',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 items.append(Item(name='Glow Discraft Ultra-Star Disc',
                   description='This disc is probably the most popular night disc ever '
                               'for the game of ultimate. The glow lasts longer and the '
                               'disc still meets USA Ultimate requirements for official '
                               'tournament use.',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 items.append(Item(name='Disc Ace Ultimate T-Shirt',
                   description='People love the Disc Ace t-shirt. '
                               'It\'s a solid design and it makes you look good!',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 items.append(Item(name='SuperColor Ultimate Discs',
                   description='SuperColors have always been the '
                               'attention of the ultimate disc world.',
-                  category_id='4'))
+                  category_id='4',
+                  user_id='1'))
 # Snowboarding
 items.append(Item(name='Freestyle Snowboard',
                   description='shorter and easier to control',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Bindings',
                   description='fasten your boots to the board',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Boots',
                   description='These specialized boots will connect '
                               'you to your board through the bindings.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Socks',
                   description='Snowboard socks are essential because '
                               'cold feet will quickly ruin your day.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Helmet',
                   description='Your brain is the most important organ in your body, '
                               'so wearing a helmet should be an easy decision.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Jacket',
                   description='snowboard jacket will have a wind and waterproof outer shell.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Base and Mid Layer',
                   description='base layering is crucial to staying warm.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Gloves',
                   description='Your hands will be in periodical contact '
                               'with the snow, so these specialized gloves'
                               ' will protect your hands.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 items.append(Item(name='Goggles',
                   description='Snowboard goggles help battle glare and '
                               'protect your eyes from the snow and wind while riding.',
-                  category_id='5'))
+                  category_id='5',
+                  user_id='1'))
 # Rock Climbing
 items.append(Item(name='Hangboards',
                   description='A wooden or resin board used for '
                               'improving contact strength for climbers.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Grip savers',
                   description='A small device that can help in developing '
                               'the antagonist muscles to those used while '
                               'gripping with the hand. Use of such a device '
                               'can prevent the ligament injuries that are '
                               'frequently experienced by climbers.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Campus board',
                   description='A series of horizontal rungs attached to '
                               'an overhanging surface that may be climbed '
                               'up and down without the aid of the feet.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Bachar ladder',
                   description='A bachar ladder is made by stringing large '
                               'diameter PVC piping on webbing and is '
                               'climbed without using the feet.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Nuts',
                   description='a small block of metal attached to '
                               'a loop of cord or wire.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Hexes',
                   description='Hexes are the oldest form of active '
                               'protection. They consist of a hollow '
                               'eccentric hexagonal prism with tapered '
                               'ends, usually threaded with cord or webbing.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Daisy chain',
                   description='A daisy chain is a strap, several feet long '
                               'and typically constructed from one-inch tubular '
                               'nylon webbing of the same type used in lengthening '
                               'straps between anchor-points and the main rope.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Rappel Rack',
                   description='This consists of a 'U' shaped frame, attached '
                               U'to the rappeller\'s harness, into which snap '
                               U'multiple bars that pivot from the '
                               U'other side of the frame.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Petzl Pirana',
                   description='The Petzl Pirana is a slight variation '
                               'to the traditional Figure 8 rappel device.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Rescue eight',
                   description='A rescue eight is a variation of a figure eight, '
                               'with "ears" or "wings" which prevent the rope from '
                               '"locking up" or creating a larks head or girth hitch, '
                               'thus stranding the rappeller on the rope.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 items.append(Item(name='Quickdraws',
                   description='Quickdraws (often referred to as "draws") are used by '
                               'climbers to connect ropes to bolt anchors, or to other '
                               'traditional protection, allowing the rope to move through '
                               'the anchoring system with minimal friction.',
-                  category_id='6'))
+                  category_id='6',
+                  user_id='1'))
 # Foosball
 items.append(Item(name='Rod',
                   description=' Rods have a huge impact on the speed of the game.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Bearing',
                   description='Foosball bearings are the part of the table '
                               'where the rods go through the holes in the table.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Silicone',
                   description='silicone is essential to keeping '
                               'your rods clean and maintained. ',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Balls',
                   description='all have a different play style and level of quality.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Bumpers',
                   description='Foosball bumpers are a part typically made of black '
                               'rubber and they provide a barrier or a cushion '
                               'between the wall of the table and the man. ',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Leg',
                   description='Legs can provide stability to a table '
                               'to prevent it from shifting.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Handle',
                   description='Foosball handles are an important foosball '
                               'part that cannot be overlooked when '
                               'shopping for a table. ',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Wrap',
                   description=' Wraps are an essential accessory to '
                               'the sport of foosball.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Tube',
                   description='Foosball tubes are another common product '
                               'for adding grip on your foosball handles.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Pin Punch',
                   description='Pins are used to hold men and handles on the rods.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Table Covers',
                   description='Table covers are an aftermarket accessory '
                               'that you have to add to your foosball table.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 items.append(Item(name='Lighting',
                   description='Having the proper lights above your '
                               'table is important to a good quality game.',
-                  category_id='7'))
+                  category_id='7',
+                  user_id='1'))
 # Skating
 items.append(Item(name='Boots',
                   description='Ice skating boots are constructed '
                               'from stiff leather to provide support '
                               'to the ankle and foot. ',
-                  category_id='8'))
+                  category_id='8',
+                  user_id='1'))
 items.append(Item(name='Blades',
                   description='Ice skating blades are not completely '
                               'flat from one tip to the other; instead, '
                               'they have a small curve referred to as the rocker. ',
-                  category_id='8'))
+                  category_id='8',
+                  user_id='1'))
 items.append(Item(name='Clothing',
                   description='There is not a dress code for ice rinks or '
                               'frozen ponds, but you do want to consider '
                               'some important aspects when deciding what to wear.',
-                  category_id='8'))
+                  category_id='8',
+                  user_id='1'))
 # Hockey
 items.append(Item(name='Bag',
                   description='There are different sizes available and '
                               'also wheeled hockey bags and non-wheeled hockey bags.',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Jock',
                   description='A jock protects the important parts',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Shin Pads',
                   description='Shin pads will protect the legs from '
                               'the top of the knees down to where the skates start.',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Socks',
                   description='These go over the shin pads and then '
                               'attach to the jock either via the new '
                               'style velcro or the old style garter belt. ',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Pants',
                   description='The Pants protect from the knees up to the belly.',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Skates',
                   description='The right size (width and length) they usually '
                               'fit a size or 2 smaller than shoes, Comfortable, '
                               'Heat molded to fit the childs foot (most shops '
                               'do this before you leave), Sharpened',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Shoulder Pad',
                   description='Shoulder pads protect the shoulders, '
                               'biceps, chest, and upper part of the back.',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Elbow pads',
                   description='Elbow pads protect the elbows, '
                               'as well as a bit of the forearm and triceps. ',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Neck Guard',
                   description='The neck guard protects the neck from the '
                               'very rare chance that a hockey stick or '
                               'skate blade comes in contact with the throat.',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Helmet with full cage',
                   description='full cage is also required to protect the face',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Jersey',
                   description='Nice suit for players, having fun with others',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 items.append(Item(name='Stick',
                   description='A hockey stick is another very '
                               'important piece of equipment. ',
-                  category_id='9'))
+                  category_id='9',
+                  user_id='1'))
 
 # Add items list in database
 for item in items:
     session.add(item)
     session.commit()
+
+print("Success, Records have been added to your database!")
