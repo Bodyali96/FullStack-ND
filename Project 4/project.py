@@ -17,11 +17,9 @@ session = DBSession()
 @app.route('/catalog')
 def show_catalog():
     categories = session.query(Category).all()
-
-    items = session.query(Item).order_by(Item.id.desc()).limit(10)
     category_items = session.query(Item).order_by(Item.id.desc()).limit(10)
     app.logger.info(category_items)
-    return render_template('catalog.html', categories=categories, category_items=zip(items, category_items))
+    return render_template('catalog.html', categories=categories, category_items=category_items)
 
 if __name__ == '__main__':
     app.debug = True

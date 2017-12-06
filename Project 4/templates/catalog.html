@@ -29,10 +29,10 @@
                         <a role="button" class="btn btn-success pull-right" href="{{ url_for('show_catalog') }}">Add New Menu Item</a>
                     </div>
                 </div>
-                {% for item, category_item in category_items %}
+                {% for category_item in category_items %}
                     <div class="row">
                         <div class="col-md ml-4">
-                            <p>{{ item['name'] }} <i>(Category: {{ category_item['category']['name'] }})</i></p>
+                            <p>{{ category_item['name'] }} <i>(Category: {{ category_item['category']['name'] }})</i></p>
                         </div>
                     </div>
                 {% endfor %}
