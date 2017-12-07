@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, redirect, flash, request, jso
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Category, Item, User
+import json
 
 app = Flask(__name__)
 
@@ -20,6 +21,8 @@ def catalog_json():
     for j in endpoint['Category']:
         cat_items = session.query(Item).filter_by(category_id=j['id']).all()
         j['Item'] = [c.serialize for c in cat_items]
+    with open('catalog.json', 'w') as jsonfile:
+        json.dump(endpoint, jsonfile)
     return jsonify(endpoint)
 
 
