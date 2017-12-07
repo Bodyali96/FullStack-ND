@@ -95,6 +95,14 @@ def delete_item(category_name, item_name):
     return render_template('delete_item.html', category_name=category_name, item_name=item_name, categories=categories, item=item_to_delete)
 
 
+@app.route('/catalog/find', methods=['GET', 'POST'])
+def find_items():
+    if request.method == 'POST' and 'search' in request.form:
+        items = session.query(Item).filter(Item.name.like('%'+request.form['search']+'%')).all()
+        return render_template('find_items.html', items=items)
+    return redirect(url_for('show_catalog'))
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=8000)

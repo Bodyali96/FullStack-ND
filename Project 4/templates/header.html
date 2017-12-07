@@ -21,9 +21,9 @@
                 </ul>
               </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 d-none d-lg-block">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="fa fa-search"></span> Search</button>
+            <form action="{{ url_for('find_items') }}" method="post" class="form-inline my-2 my-lg-0 d-none d-lg-block">
+              <input class="form-control mr-sm-2" type="text" name="search" value="{{ request.form.search }}" placeholder="Search for Items" aria-label="Search">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-search"></span> Search</button>
             </form>
             <div class="ml-sm-2">
                 <button type="button" class="btn btn-info my-2 my-sm-0"><span class="fa fa-sign-in"></span> Login</button>
