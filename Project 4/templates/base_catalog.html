@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container bg-light p-4">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mycontent-left mb-sm-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm">
+                        <h1><span class="fa fa-list-alt"></span> Categories</h1>
+                    </div>
+                </div>
+                {% for category in categories %}
+                <div class="row">
+                    <div class="col-md ml-4">
+                        <p><a class="item-link" href="{{ url_for('show_category_items', category_name=category['name']) }}">{{ category['name'] }}</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-6">
+            <div class="container-fluid">
+            {% block left_block %}
+            {% endblock %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

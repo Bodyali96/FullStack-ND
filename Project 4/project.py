@@ -17,9 +17,25 @@ session = DBSession()
 @app.route('/catalog')
 def show_catalog():
     categories = session.query(Category).all()
-    category_items = session.query(Item).order_by(Item.id.desc()).limit(10)
-    app.logger.info(category_items)
-    return render_template('catalog.html', categories=categories, category_items=category_items)
+    latest_items = session.query(Item).order_by(Item.id.desc()).limit(10)
+    return render_template('catalog.html', categories=categories, latest_items=latest_items)
+
+
+@app.route('/catalog/<string:category_name>/Items')
+def show_category_items(category_name):
+    categories = session.query(Category).all()
+    category = session.query(Category).filter_by(name=category_name).one()
+    items = session.query(Item).filter_by(category_id=category.id).all()
+    return render_template('category_items.html', categories=categories, items=items, category_name=category_name)
+
+
+@app.route('/catalog/<string:category_name>/<string:item_name>')
+def show_item(category_name, item_name):
+    categories = session.query(Category).all()
+    category = session.query(Category).filter(Category.name == category_name).one()
+    item = session.query(Item).filter_by(category_id=category.id, name=item_name).one()
+    return render_template('item_card.html', categories=categories, category_name=category_name, item=item)
+
 
 if __name__ == '__main__':
     app.debug = True

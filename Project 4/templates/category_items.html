@@ -3,16 +3,16 @@
 {% block left_block %}
 <div class="row my-2 my-md-0">
     <div class="col-lg-8">
-        <h1><span class="fa fa-soccer-ball-o"></span> Latest Items</h1>
+        <h1><span class="fa fa-chevron-down"></span> {{ category_name }}</h1>
     </div>
     <div class="col-lg-4 align-self-center">
         <a role="button" class="btn btn-success pull-right" href="{{ url_for('show_catalog') }}">Add New Menu Item</a>
     </div>
 </div>
-{% for latest_item in latest_items %}
+{% for item in items %}
     <div class="row">
         <div class="col-md ml-4">
-            <p><a class="item-link" href="{{ url_for('show_item', category_name=latest_item['category']['name'], item_name=latest_item['name']) }}">{{ latest_item['name'] }}</a> <i>(Category: {{ latest_item['category']['name'] }})</i></p>
+            <p><a class="item-link" href="{{ url_for('show_item', category_name=category_name, item_name=item['name']) }}">{{ item['name'] }}</a></p>
         </div>
     </div>
 {% endfor %}

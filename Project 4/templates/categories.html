@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-md-6 mycontent-left mb-sm-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <h1><span class="fa fa-list-alt"></span> Categories</h1>
+            </div>
+        </div>
+        {% for category in categories %}
+        <div class="row">
+            <div class="col-md ml-4">
+                <p>{{ category['name'] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

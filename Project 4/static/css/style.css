@@ -28,6 +28,17 @@ footer {
     display: block;
 }
 
+.item-link{
+    color: #0062cc;
+    font-size: large;
+    text-decoration: none;
+}
+
+.item-link:hover {
+    color: #d39e00;
+    text-decoration: none;
+}
+
 
 /*
 For Debugging
