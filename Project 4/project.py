@@ -70,10 +70,12 @@ def edit_item(category_name, item_name):
         if request.form['description']:
             item_to_edit.description = request.form['description']
         if request.form['category']:
+            app.logger.info(request.form['category'])
             item_to_edit.category_id = request.form['category']
         session.add(item_to_edit)
         session.commit()
-        return redirect(url_for('show_category_items', category_name=category_name))
+        category = session.query(Category).filter_by(id=request.form['category']).one()
+        return redirect(url_for('show_category_items', category_name=category.name))
     return render_template('edit_item.html', category_name=category_name, item_name=item_name, categories=categories(), item=item_to_edit)
 
 

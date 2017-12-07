@@ -22,7 +22,7 @@
           {% for category in categories %}
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="category" id="gridRadios{{ category['id'] }}" value="Appetizer" {% if item['category_id'] == category['id'] %}checked{% endif %}>
+                <input class="form-check-input" type="radio" name="category" id="gridRadios{{ category['id'] }}" value="{{ category['id'] }}" {% if item['category_id'] == category['id'] %}checked{% endif %}>
                 {{ category['name'] }}
               </label>
             </div>
