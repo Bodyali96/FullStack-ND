@@ -43,7 +43,7 @@ The homepage displays all current categories along with the latest added items.
 
 http://localhost:8000
 
-![Home Page](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen01.png)
+![Home Page](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen01.png)
 
 ### Show Category Items
 
@@ -51,7 +51,7 @@ Selecting a specific category shows you all the items available for that categor
 
 http://localhost:8000/catalog/Soccer/Items
 
-![Show Category Items](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen02.png)
+![Show Category Items](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen02.png)
 
 
 ### Show Item
@@ -60,7 +60,7 @@ Selecting a specific item shows you specific information of that item.
 
 http://localhost:8000/catalog/Soccer/Footwear
 
-![Show Item](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen03.png)
+![Show Item](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen03.png)
 
 
 ### Search
@@ -68,7 +68,7 @@ http://localhost:8000/catalog/Soccer/Footwear
 Finding Items by text between words
 
 http://localhost:8000/catalog/find
-![Search](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen05.png)
+![Search](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen05.png)
 
 
 
@@ -76,26 +76,26 @@ http://localhost:8000/catalog/find
 
 http://localhost:8000/catalog/item/new
 
-![Add New Item](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen06.png)
+![Add New Item](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen06.png)
 
 
 ### Edit
 
 http://localhost:8000/catalog/Hockey/Stick/edit
 
-![Edit](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen06.png)
+![Edit](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen06.png)
 
 
 ### Delete
 
 http://localhost:8000/catalog/Hockey/Stick/delete
 
-![Delete](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen07.png)
+![Delete](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen07.png)
 
 
 ### Login Page
 
 http://localhost:8000/login
 
-![Login](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%204/Preview/Screen04.png)
+![Login](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen04.png)
 
