@@ -1,7 +1,7 @@
 <div class="container-fluid mb-4">
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="{{ url_for('show_catalog') }}">
-        <img src="{{ url_for('static', filename='images/logo1.png') }}" class="img-fluid" width="150" alt="Catalog">
+            <img src="{{ url_for('static', filename='images/logo1.png') }}" class="img-fluid" width="150" alt="Catalog">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><span class="fa fa-search"></span> Search</button>
             </form>
             <div class="ml-sm-2">
-                <button type="button" class="btn btn-info my-2 my-sm-0"><span class="fa fa-sign-in"></span> Login</button>
+                <a role="button" href="{{ url_for('show_login') }}" class="btn btn-info my-2 my-sm-0"><span class="fa fa-sign-in"></span> Login</a>
             </div>
         </div>
     </nav>
