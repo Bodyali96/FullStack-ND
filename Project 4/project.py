@@ -24,11 +24,16 @@ session = DBSession()
 
 @app.route('/catalog/JSON')
 def catalog_json():
+    """Provides JSON endpoint of Catalog"""
+    # Selecting all categories
     cat = session.query(Category).all()
+    # Serializing categories
     endpoint = {'Category': [c.serialize for c in cat]}
+    # Looping through categories, adding items of each category
     for j in endpoint['Category']:
         cat_items = session.query(Item).filter_by(category_id=j['id']).all()
         j['Item'] = [c.serialize for c in cat_items]
+    # Writing JSON endpoint to catalog.json file
     with open('catalog.json', 'w') as jsonfile:
         json.dump(endpoint, jsonfile)
     return jsonify(endpoint)
@@ -37,97 +42,126 @@ def catalog_json():
 @app.route('/')
 @app.route('/catalog')
 def show_catalog():
+    """Viewing Categories and Latest Items"""
+    # Selecting latest items by getting latest 10 id's
     latest_items = session.query(Item).order_by(Item.id.desc()).limit(10)
     return render_template('catalog.html', categories=categories(), latest_items=latest_items)
 
 
 @app.route('/catalog/<string:category_name>/Items')
 def show_category_items(category_name):
+    """Viewing Items of a specific category"""
+    # Selecting a category by name
     category = session.query(Category).filter_by(name=category_name).one()
+    # Selecting items by category id
     items = session.query(Item).filter_by(category_id=category.id).all()
     return render_template('category_items.html', categories=categories(), items=items, category_name=category_name)
 
 
 @app.route('/catalog/<string:category_name>/<string:item_name>')
 def show_item(category_name, item_name):
+    """Viewing an Item of a specific category"""
+    # Selecting a category by name
     category = session.query(Category).filter_by(name=category_name).one()
+    # Selecting an item by category id and item name
     item = session.query(Item).filter_by(category_id=category.id, name=item_name).one()
     return render_template('item_card.html', categories=categories(), category_name=category_name, item=item)
 
 
 @app.route('/catalog/<string:category_name>/new', methods=['GET', 'POST'])
 def create_item(category_name):
+    """Creating an Item within specific category"""
     if 'username' not in login_session:
         return redirect('/login')
     if request.method == 'POST':
+        # Adding post request details into database
         item = Item(name=request.form['name'],
                     description=request.form['description'],
                     category_id=request.form['category'],
                     user_id=request.form['user'])
         session.add(item)
         session.commit()
+        # Redirecting page to a specific category added into it
         return redirect(url_for('show_category_items', category_name=category_name))
+    # Otherwise render form page
     return render_template('new_item.html', category_name=category_name, categories=categories())
 
 
 @app.route('/catalog/item/new', methods=['GET', 'POST'])
 def create_item_default():
+    """Creating an Item from home page without pre-selecting category"""
     if 'username' not in login_session:
         return redirect('/login')
     if request.method == 'POST':
+        # Adding post request details into database
         item = Item(name=request.form['name'],
                     description=request.form['description'],
                     category_id=request.form['category'],
                     user_id=request.form['user'])
         session.add(item)
         session.commit()
+        # Redirecting page to a specific category added into it
         return redirect(url_for('show_category_items', category_name=item['category']['name']))
+    # Otherwise render form page
     return render_template('new_item_home.html', categories=categories())
 
 
 @app.route('/catalog/<string:category_name>/<string:item_name>/edit', methods=['GET', 'POST'])
 def edit_item(category_name, item_name):
+    """Editing a specific Item within specific category"""
     if 'username' not in login_session:
         return redirect('/login')
     category = session.query(Category).filter_by(name=category_name).one()
     item_to_edit = session.query(Item).filter_by(category_id=category.id, name=item_name).one()
     if request.method == 'POST':
+        # Adding post request details to be edited in database
         if request.form['name']:
             item_to_edit.name = request.form['name']
         if request.form['description']:
             item_to_edit.description = request.form['description']
         if request.form['category']:
-            app.logger.info(request.form['category'])
             item_to_edit.category_id = request.form['category']
         session.add(item_to_edit)
         session.commit()
+        # Selecting a category by id input from form
         category = session.query(Category).filter_by(id=request.form['category']).one()
+        # Redirecting page to a specific category added into it
         return redirect(url_for('show_category_items', category_name=category.name))
+    # Otherwise render form page
     return render_template('edit_item.html', category_name=category_name, item_name=item_name, categories=categories(), item=item_to_edit)
 
 
 @app.route('/catalog/<string:category_name>/<string:item_name>/delete', methods=['GET', 'POST'])
 def delete_item(category_name, item_name):
+    """Deleting a specific Item withing specific category"""
     if 'username' not in login_session:
         return redirect('/login')
+    # Selecting category by name
     category = session.query(Category).filter_by(name=category_name).one()
+    # Selecting item to be deleted by category name and item name
     item_to_delete = session.query(Item).filter_by(category_id=category.id, name=item_name).one()
     if request.method == 'POST':
         session.delete(item_to_delete)
         session.commit()
+        # Redirecting page to a specific category deleted from it
         return redirect(url_for('show_category_items', category_name=category_name))
+    # Otherwise render confirmation page
     return render_template('delete_item.html', category_name=category_name, item_name=item_name, categories=categories(), item=item_to_delete)
 
 
 @app.route('/catalog/find', methods=['GET', 'POST'])
 def find_items():
+    """Finding Items by text between words"""
+    # If input form has search text
     if request.method == 'POST' and 'search' in request.form:
+        # Select items like that text
         items = session.query(Item).filter(Item.name.like('%'+request.form['search']+'%')).all()
         return render_template('find_items.html', items=items, categories=categories())
     return redirect(url_for('show_catalog'))
 
 
 def categories():
+    """Selecting all categories from database"""
     categories_list = session.query(Category).all()
     return categories_list
 
