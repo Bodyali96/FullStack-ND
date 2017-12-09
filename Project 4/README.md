@@ -68,6 +68,7 @@ http://localhost:8000/catalog/Soccer/Footwear
 Finding Items by text between words
 
 http://localhost:8000/catalog/find
+
 ![Search](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen05.png)
 
 
@@ -76,7 +77,7 @@ http://localhost:8000/catalog/find
 
 http://localhost:8000/catalog/item/new
 
-![Add New Item](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen06.png)
+![Add New Item](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen07.png)
 
 
 ### Edit
@@ -90,7 +91,7 @@ http://localhost:8000/catalog/Hockey/Stick/edit
 
 http://localhost:8000/catalog/Hockey/Stick/delete
 
-![Delete](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen07.png)
+![Delete](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen08.png)
 
 
 ### Login Page
@@ -98,4 +99,11 @@ http://localhost:8000/catalog/Hockey/Stick/delete
 http://localhost:8000/login
 
 ![Login](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen04.png)
+
+
+### JSON Endpoint
+
+http://localhost:8000/catalog/JSON
+
+![Login](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Screen09.png)
 

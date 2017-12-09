@@ -51,115 +51,154 @@ items = []
 # Soccer
 items.append(Item(name='Footwear',
                   description='These shoes provide better traction on grass, '
-                              'which increases player’s ability to stay on their feet.',
+                              'which increases player’s ability '
+                              'to stay on their feet.',
                   category=categories[0],
                   user=users[0]))
 items.append(Item(name='Soccer Socks',
-                  description='Soccer socks are extremely long. They cover shin-guards.',
+                  description='Soccer socks are extremely long. '
+                              'They cover shin-guards.',
                   category=categories[0],
                   user=users[0]))
 items.append(Item(name='Shin-Guards',
-                  description='Shin-guards protect player’s shins, a vulnerable part of '
+                  description='Shin-guards protect player’s shins, '
+                              'a vulnerable part of '
                               'a player’s body that often gets kicked.',
                   category=categories[0],
                   user=users[0]))
 items.append(Item(name='Soccer Ball',
                   description='Soccer balls allows players to train and '
-                              'play individually or with friends outside of practice.',
+                              'play individually or with friends '
+                              'outside of practice.',
                   category=categories[0],
                   user=users[0]))
 items.append(Item(name='Water Bottle',
-                  description='Purchase a fairly large water bottle that you can fill '
+                  description='Purchase a fairly large water bottle '
+                              'that you can fill '
                               'up before every practice and game.',
                   category=categories[0],
                   user=users[0]))
 # Basketball
 items.append(Item(name='Ball',
-                  description='Official size of a basketball is 29.5 to 30 inches in '
-                              'circumference for men\'s game and 28.5 inches in '
-                              'circumference for women\'s game. It should weigh 18'
-                              ' to 22 ounces. When bounced off 6 feet from the floor,'
-                              ' a well inflated ball should bounce 49 to 54 inches in height.',
+                  description='Official size of a basketball '
+                              'is 29.5 to 30 inches in '
+                              'circumference for men\'s game '
+                              'and 28.5 inches in '
+                              'circumference for women\'s game. '
+                              'It should weigh 18'
+                              ' to 22 ounces. When bounced off 6 '
+                              'feet from the floor,'
+                              ' a well inflated ball should bounce '
+                              '49 to 54 inches in height.',
                   category=categories[1],
                   user=users[0]))
 items.append(Item(name='Shoes',
-                  description='These shoes are specially designed to maintain high '
+                  description='These shoes are specially '
+                              'designed to maintain high '
                               'traction on the basketball court.',
                   category=categories[1],
                   user=users[0]))
 items.append(Item(name='Basketball Shooting',
-                  description='The hoop or basket is a horizontal metallic rim, circular in shape.',
+                  description='The hoop or basket is a horizontal '
+                              'metallic rim, circular in shape.',
                   category=categories[1],
                   user=users[0]))
 items.append(Item(name='Backboard',
-                  description='The backboard is the rectangular board that is placed '
-                              'behind the rim. It helps give better rebound to the ball. '
-                              'The backboard is about 1800mm in size horizontally and '
+                  description='The backboard is the rectangular '
+                              'board that is placed '
+                              'behind the rim. It helps give '
+                              'better rebound to the ball. '
+                              'The backboard is about 1800mm in '
+                              'size horizontally and '
                               '1050mm vertically.',
                   category=categories[1],
                   user=users[0]))
 # Baseball
 items.append(Item(name='Bat',
-                  description='A rounded, solid wooden or hollow aluminum bat. '
-                              'Wooden bats are traditionally made from ash wood, '
-                              'though maple and bamboo is also sometimes used',
+                  description='A rounded, solid wooden or '
+                              'hollow aluminum bat. '
+                              'Wooden bats are traditionally '
+                              'made from ash wood, '
+                              'though maple and bamboo is '
+                              'also sometimes used',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Ball',
-                  description='A cork sphere, tightly wound with layers of yarn '
-                              'or string and covered with a stitched leather coat.',
+                  description='A cork sphere, tightly wound '
+                              'with layers of yarn '
+                              'or string and covered with a '
+                              'stitched leather coat.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Base',
-                  description='One of four corners of the infield which must be touched '
-                              'by a runner in order to score a run; more specifically, '
-                              'they are canvas bags (at first, second, and third base) '
+                  description='One of four corners of the '
+                              'infield which must be touched '
+                              'by a runner in order to score '
+                              'a run; more specifically, '
+                              'they are canvas bags (at first, '
+                              'second, and third base) '
                               'and a rubber plate (at home).',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Glove',
-                  description='Leather gloves worn by players in the field. '
-                              'Long fingers and a webbed "KKK" between the thumb and '
-                              'first finger allows the fielder to catch the ball more easily.',
+                  description='Leather gloves worn by '
+                              'players in the field. '
+                              'Long fingers and a webbed "KKK" '
+                              'between the thumb and '
+                              'first finger allows the fielder '
+                              'to catch the ball more easily.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Catcher\'s mitt',
-                  description='Leather mitt worn by catchers. It is much wider than a '
-                              'normal fielder\'s glove and the four fingers are connected.',
+                  description='Leather mitt worn by catchers. '
+                              'It is much wider than a '
+                              'normal fielder\'s glove and the '
+                              'four fingers are connected.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='First baseman\'s mitt',
-                  description='Leather mitt worn by first basemen. It is longer and '
+                  description='Leather mitt worn by first '
+                              'basemen. It is longer and '
                               'wider than a standard fielder\'s glove.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Batting gloves',
-                  description='Gloves often worn on one or both hands by the batter.',
+                  description='Gloves often worn on one or '
+                              'both hands by the batter.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Batting helmet',
-                  description='Helmet worn by batter to protect the head and the ear '
+                  description='Helmet worn by batter to '
+                              'protect the head and the ear '
                               'facing the pitcher from the ball.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Baseball cap',
-                  description='Designed to shade the eyes from the sun, this hat '
-                              'design has become popular with the general public.',
+                  description='Designed to shade the eyes '
+                              'from the sun, this hat '
+                              'design has become popular '
+                              'with the general public.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Catcher\'s helmet ',
-                  description='Newer styles feature a fully integrated helmet '
-                              'and mask, similar to a hockey goalie mask.',
+                  description='Newer styles feature a '
+                              'fully integrated helmet '
+                              'and mask, similar to a '
+                              'hockey goalie mask.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Jockstrap with cup pocket',
-                  description='An undergarment worn by boys and men for '
-                              'support of the testicles and penis during sports.',
+                  description='An undergarment worn by '
+                              'boys and men for '
+                              'support of the testicles '
+                              'and penis during sports.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Protective cup',
-                  description='designed to protect the testicles and groin from '
-                              'impact of a baseball, baseball bat, cleats, '
+                  description='designed to protect the '
+                              'testicles and groin from '
+                              'impact of a baseball, '
+                              'baseball bat, cleats, '
                               'or any other moving object.',
                   category=categories[2],
                   user=users[0]))
@@ -168,55 +207,81 @@ items.append(Item(name='Sunglasses',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Baseball cleats',
-                  description='Baseball specific shoes worn by the player for better traction. '
-                              'The cleats themselves are either rubber or metal.',
+                  description='Baseball specific shoes worn '
+                              'by the player for better traction. '
+                              'The cleats themselves are '
+                              'either rubber or metal.',
                   category=categories[2],
                   user=users[0]))
 items.append(Item(name='Baseball doughnut',
-                  description='A weighted ring that fits over the end of a baseball '
-                              'bat, used for warming up during a baseball game. '
+                  description='A weighted ring that fits '
+                              'over the end of a baseball '
+                              'bat, used for warming up '
+                              'during a baseball game. '
                               'A doughnut can help increase bat speed.',
                   category=categories[2],
                   user=users[0]))
 # Frisbee
 items.append(Item(name='White Discraft Ultra-Star Disc',
-                  description='The Discraft Ultra-Star is the most common disc found '
-                              'on any given ultimate frisbee field in the world. '
-                              'Whether casual pick-up games or competitive sponsored '
-                              'tournaments the disc most often used is the Ultra-Star. '
-                              'And more often than not, if you\'re playing in a officiated '
-                              'tournament game you\'re going to be throwing a white disc. '
-                              'It\'s the standard disc, it\'s the most visible color, and '
-                              'it\'s what has been used for years. So if you\'re looking '
-                              'for the most popular item in ultimate frisbee, '
-                              'the White Discraft Ultra-Star is it.',
+                  description='The Discraft Ultra-Star is '
+                              'the most common disc found '
+                              'on any given ultimate '
+                              'frisbee field in the world. '
+                              'Whether casual pick-up '
+                              'games or competitive sponsored '
+                              'tournaments the disc most '
+                              'often used is the Ultra-Star. '
+                              'And more often than not, '
+                              'if you\'re playing in a officiated '
+                              'tournament game you\'re going '
+                              'to be throwing a white disc. '
+                              'It\'s the standard disc, '
+                              'it\'s the most visible color, and '
+                              'it\'s what has been used for '
+                              'years. So if you\'re looking '
+                              'for the most popular item '
+                              'in ultimate frisbee, '
+                              'the White Discraft '
+                              'Ultra-Star is it.',
                   category=categories[3],
                   user=users[0]))
 items.append(Item(name='Ultimate Disc Bundles',
-                  description='Ultimate Disc Bundles are a great way to get a package '
-                              'of ultimate gear for a reduced price. Many people prefer '
-                              'this method of acquiring the right gear in one quick purchase. '
-                              'Many ultimate frisbee players prefer to buy their ultimate '
-                              'discs in Pick 6 and Pick 10 bundles. It\'s always a great idea '
-                              'to have back up discs for when the disc you\'re currently '
-                              'using gets damaged or lost. A disc that is over used '
+                  description='Ultimate Disc Bundles are a '
+                              'great way to get a package '
+                              'of ultimate gear for a reduced '
+                              'price. Many people prefer '
+                              'this method of acquiring the '
+                              'right gear in one quick purchase. '
+                              'Many ultimate frisbee players '
+                              'prefer to buy their ultimate '
+                              'discs in Pick 6 and Pick 10 '
+                              'bundles. It\'s always a great idea '
+                              'to have back up discs for '
+                              'when the disc you\'re currently '
+                              'using gets damaged or lost. '
+                              'A disc that is over used '
                               'will not fly the way it was intended.',
                   category=categories[3],
                   user=users[0]))
 items.append(Item(name='Orange Discraft Ultra-Star Disc',
-                  description='Orange is one of the most popular colored ultimate discs on the field.',
+                  description='Orange is one of the most popular '
+                              'colored ultimate discs on the field.',
                   category=categories[3],
                   user=users[0]))
 items.append(Item(name='Glow Discraft Ultra-Star Disc',
-                  description='This disc is probably the most popular night disc ever '
-                              'for the game of ultimate. The glow lasts longer and the '
-                              'disc still meets USA Ultimate requirements for official '
+                  description='This disc is probably the most '
+                              'popular night disc ever '
+                              'for the game of ultimate. The '
+                              'glow lasts longer and the '
+                              'disc still meets USA Ultimate '
+                              'requirements for official '
                               'tournament use.',
                   category=categories[3],
                   user=users[0]))
 items.append(Item(name='Disc Ace Ultimate T-Shirt',
                   description='People love the Disc Ace t-shirt. '
-                              'It\'s a solid design and it makes you look good!',
+                              'It\'s a solid design and it '
+                              'makes you look good!',
                   category=categories[3],
                   user=users[0]))
 items.append(Item(name='SuperColor Ultimate Discs',
@@ -244,12 +309,15 @@ items.append(Item(name='Socks',
                   category=categories[4],
                   user=users[0]))
 items.append(Item(name='Helmet',
-                  description='Your brain is the most important organ in your body, '
-                              'so wearing a helmet should be an easy decision.',
+                  description='Your brain is the most '
+                              'important organ in your body, '
+                              'so wearing a helmet should '
+                              'be an easy decision.',
                   category=categories[4],
                   user=users[0]))
 items.append(Item(name='Jacket',
-                  description='snowboard jacket will have a wind and waterproof outer shell.',
+                  description='snowboard jacket will have a '
+                              'wind and waterproof outer shell.',
                   category=categories[4],
                   user=users[0]))
 items.append(Item(name='Base and Mid Layer',
@@ -264,7 +332,8 @@ items.append(Item(name='Gloves',
                   user=users[0]))
 items.append(Item(name='Goggles',
                   description='Snowboard goggles help battle glare and '
-                              'protect your eyes from the snow and wind while riding.',
+                              'protect your eyes from the '
+                              'snow and wind while riding.',
                   category=categories[4],
                   user=users[0]))
 # Rock Climbing
@@ -306,10 +375,14 @@ items.append(Item(name='Hexes',
                   category=categories[5],
                   user=users[0]))
 items.append(Item(name='Daisy chain',
-                  description='A daisy chain is a strap, several feet long '
-                              'and typically constructed from one-inch tubular '
-                              'nylon webbing of the same type used in lengthening '
-                              'straps between anchor-points and the main rope.',
+                  description='A daisy chain is a strap, '
+                              'several feet long '
+                              'and typically constructed '
+                              'from one-inch tubular '
+                              'nylon webbing of the same '
+                              'type used in lengthening '
+                              'straps between anchor-points '
+                              'and the main rope.',
                   category=categories[5],
                   user=users[0]))
 items.append(Item(name='Rappel Rack',
@@ -325,27 +398,36 @@ items.append(Item(name='Petzl Pirana',
                   category=categories[5],
                   user=users[0]))
 items.append(Item(name='Rescue eight',
-                  description='A rescue eight is a variation of a figure eight, '
-                              'with "ears" or "wings" which prevent the rope from '
-                              '"locking up" or creating a larks head or girth hitch, '
+                  description='A rescue eight is a variation '
+                              'of a figure eight, '
+                              'with "ears" or "wings" which '
+                              'prevent the rope from '
+                              '"locking up" or creating a '
+                              'larks head or girth hitch, '
                               'thus stranding the rappeller on the rope.',
                   category=categories[5],
                   user=users[0]))
 items.append(Item(name='Quickdraws',
-                  description='Quickdraws (often referred to as "draws") are used by '
-                              'climbers to connect ropes to bolt anchors, or to other '
-                              'traditional protection, allowing the rope to move through '
+                  description='Quickdraws (often referred to '
+                              'as "draws") are used by '
+                              'climbers to connect ropes to '
+                              'bolt anchors, or to other '
+                              'traditional protection, '
+                              'allowing the rope to move through '
                               'the anchoring system with minimal friction.',
                   category=categories[5],
                   user=users[0]))
 # Foosball
 items.append(Item(name='Rod',
-                  description=' Rods have a huge impact on the speed of the game.',
+                  description=' Rods have a huge impact '
+                              'on the speed of the game.',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Bearing',
-                  description='Foosball bearings are the part of the table '
-                              'where the rods go through the holes in the table.',
+                  description='Foosball bearings are the '
+                              'part of the table '
+                              'where the rods go through '
+                              'the holes in the table.',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Silicone',
@@ -354,11 +436,13 @@ items.append(Item(name='Silicone',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Balls',
-                  description='all have a different play style and level of quality.',
+                  description='all have a different play '
+                              'style and level of quality.',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Bumpers',
-                  description='Foosball bumpers are a part typically made of black '
+                  description='Foosball bumpers are a part '
+                              'typically made of black '
                               'rubber and they provide a barrier or a cushion '
                               'between the wall of the table and the man. ',
                   category=categories[6],
@@ -385,7 +469,8 @@ items.append(Item(name='Tube',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Pin Punch',
-                  description='Pins are used to hold men and handles on the rods.',
+                  description='Pins are used to hold men '
+                              'and handles on the rods.',
                   category=categories[6],
                   user=users[0]))
 items.append(Item(name='Table Covers',
@@ -408,19 +493,22 @@ items.append(Item(name='Boots',
 items.append(Item(name='Blades',
                   description='Ice skating blades are not completely '
                               'flat from one tip to the other; instead, '
-                              'they have a small curve referred to as the rocker. ',
+                              'they have a small curve '
+                              'referred to as the rocker. ',
                   category=categories[7],
                   user=users[0]))
 items.append(Item(name='Clothing',
                   description='There is not a dress code for ice rinks or '
                               'frozen ponds, but you do want to consider '
-                              'some important aspects when deciding what to wear.',
+                              'some important aspects '
+                              'when deciding what to wear.',
                   category=categories[7],
                   user=users[0]))
 # Hockey
 items.append(Item(name='Bag',
                   description='There are different sizes available and '
-                              'also wheeled hockey bags and non-wheeled hockey bags.',
+                              'also wheeled hockey bags '
+                              'and non-wheeled hockey bags.',
                   category=categories[8],
                   user=users[0]))
 items.append(Item(name='Jock',
@@ -429,7 +517,8 @@ items.append(Item(name='Jock',
                   user=users[0]))
 items.append(Item(name='Shin Pads',
                   description='Shin pads will protect the legs from '
-                              'the top of the knees down to where the skates start.',
+                              'the top of the knees down '
+                              'to where the skates start.',
                   category=categories[8],
                   user=users[0]))
 items.append(Item(name='Socks',
@@ -439,12 +528,14 @@ items.append(Item(name='Socks',
                   category=categories[8],
                   user=users[0]))
 items.append(Item(name='Pants',
-                  description='The Pants protect from the knees up to the belly.',
+                  description='The Pants protect from '
+                              'the knees up to the belly.',
                   category=categories[8],
                   user=users[0]))
 items.append(Item(name='Skates',
                   description='The right size (width and length) they usually '
-                              'fit a size or 2 smaller than shoes, Comfortable, '
+                              'fit a size or 2 smaller '
+                              'than shoes, Comfortable, '
                               'Heat molded to fit the childs foot (most shops '
                               'do this before you leave), Sharpened',
                   category=categories[8],
