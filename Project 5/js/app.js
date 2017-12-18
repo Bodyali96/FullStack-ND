@@ -88,21 +88,16 @@ var styles = [
     }
 ];
 
-
 function initMap() {
-
-
-
     // Constructor creates a new map - only center and zoom required
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 40.7413549, lng: -73.9980244},
-        zoom: 13,
+        center: {lat: 30.044430, lng: 31.235719},
+        zoom: 15,
         styles: styles,
         mapTypeControl: false
     });
     ko.applyBindings(new ViewModel());
 }
-
 
 var ViewModel = function () {
     // Make this accessible
@@ -124,12 +119,16 @@ var ViewModel = function () {
     // These are the real estate listings that will be shown to the user.
     // Normally we'd have these in a database instead.
     var locations = [
-        {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng:-73.9632393}},
-        {title: 'Chelsea Loft', location: {lat: 40.744483, lng:-73.9949465}},
-        {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng:-73.9895759}},
-        {title: 'East Village Hip Studio', location: {lat: 40.7281777, lng:-73.984377}},
-        {title: 'TriBeCa Arsty Bachelor Pad', location: {lat: 40.7195264, lng:-74.0089934}},
-        {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng:-73.9961237}}
+        {title: 'Tahrir Square Egypt', location: {lat: 30.044420, lng: 31.235712}},
+        {title: 'Cairo Tower', location: {lat: 30.046195, lng: 31.224333}},
+        {title: 'Mokhtar Altitch Stadium', location: {lat: 30.045043, lng: 31.223531}},
+        {title: 'Egyptian Museum', location: {lat: 30.047848, lng: 31.233637}},
+        {title: 'Ethnographic Museum', location: {lat: 30.041198, lng: 31.235847}},
+        {title: 'Mahmoud Mukhtar Museum', location: {lat: 30.040734, lng: 31.222866}},
+        {title: 'Beit El Umma Museum', location: {lat: 30.038133, lng: 31.237478}},
+        {title: 'Cairo Opera House', location: {lat: 30.042684, lng: 31.223981}},
+        {title: 'Al Ahly Sports Club', location: {lat: 30.044913, lng: 31.222372}},
+        {title: 'The Great Pyramid at Giza', location: {lat: 29.979249, lng: 31.134181}},
     ];
 
     var largeInfowindow = new google.maps.InfoWindow();
@@ -143,7 +142,6 @@ var ViewModel = function () {
 
     var bounds = new google.maps.LatLngBounds();
 
-    var marker;
 
     // The following group uses the location array to create an array of markers on initialize.
     for(var i = 0; i < locations.length; i++){
@@ -151,7 +149,7 @@ var ViewModel = function () {
         var position = locations[i].location;
         var title = locations[i].title;
         // Create a marker per location, and put into markers array.
-        marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
             map: map,
             position: position,
             title: title,
@@ -163,14 +161,14 @@ var ViewModel = function () {
         // Extend the boundaries of the map for each marker
         bounds.extend(marker.position);
         // Create an onclick event to open an infowindow at each marker.
-        self.markerClick = function() {
+        var markerClick = function() {
             populateInfoWindow(this, largeInfowindow);
             for (var i = 0; i < markers.length; i++){
                 markers[i].setAnimation(null);
             }
             this.setAnimation(google.maps.Animation.BOUNCE);
-        }
-        marker.addListener('click', self.markerClick);
+        };
+        marker.addListener('click', markerClick);
         // Two event listeners - one for mouseover, one for mouseout,
         // to change the colors back and forth.
         marker.addListener('mouseover', function () {
@@ -181,9 +179,32 @@ var ViewModel = function () {
         });
         // Push the marker to our array of markers.
         markers.push(marker);
-        $('.sidebar-nav').append('<li><a href="#">'+marker.title+'</a></li>');
+        // Getting sidebar unordered list
+        var sidebar = document.getElementById('sidebar-list');
+        // Creating list item for each marker
+        var marker_li = document.createElement('li');
+        // Creating anchor element
+        var marker_anch = document.createElement('a');
+        marker_anch.setAttribute('href', '#');
+        // Setting Text content of each anchor element to marker title
+        marker_anch.textContent = marker.title;
+        // Putting anchor element inside list item
+        marker_li.appendChild(marker_anch);
+        // Click event for list item to select each marker
+        marker_li.addEventListener('click', function (markerCopy) {
+            return function () {
+                populateInfoWindow(markerCopy, largeInfowindow);
+                for (var j = 0; j < markers.length; j++){
+                    markers[j].setAnimation(null);
+                }
+                markerCopy.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }(marker));
+        // Putting list item into sidebar unordered list
+        sidebar.appendChild(marker_li);
     }
 
+    // Change Text of button upon next action
     document.getElementById('toggle-markers').addEventListener('click', function () {
         this.innerText = isActiveMarkers ? 'Show Markers' : 'Hide Markers';
         toggleShowMarker();
@@ -204,43 +225,27 @@ var ViewModel = function () {
     // on that markers position.
     function populateInfoWindow(marker, infowindow) {
         // Check to make sure the infowindow is not already opened on this marker.
-        if(infowindow.marker != marker){
+        if (infowindow.marker != marker) {
             infowindow.marker = marker;
-            infowindow.setContent('');
-            // Make sure the marker property is cleared if the infowindow is closed.
-            infowindow.addListener('closeClick', function () {
-                infowindow.setMarker(null);
-            });
-            var streetViewService = new google.maps.StreetViewService();
-            var radius = 50;
-            // In case the status is OK, which means the pano was found, compute the
-            // position of the streetview image, then calculate the heading, then get a
-            // panorama from that and set the options
-            function getStreetView(data, status) {
-                if(status == google.maps.StreetViewStatus.OK) {
-                    var nearStreetViewLocation = data.location.latLng;
-                    var heading = google.maps.geometry.spherical.computeHeading(
-                        nearStreetViewLocation, marker.position);
-                    infowindow.setContent('<div>'+marker.title+'</div><div id="pano"></div>');
-                    var panoramaOptions = {
-                        position: nearStreetViewLocation,
-                        pov: {
-                            heading: heading,
-                            pitch: 30
-                        }
-                    };
-                    var panorama = new google.maps.StreetViewPanorama(
-                        document.getElementById('pano'), panoramaOptions);
-                } else {
-                    infowindow.setContent('<div>'+marker.title+'</div>'+
-                    '<div>No Street View Found</div>');
+
+            infowindow.setContent('<ul class="wiki"><li>' + marker.title + '</li></ul>');
+            var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
+            var wikiData = '';
+
+            $.ajax({
+                url: wikiURL,
+                dataType: "jsonp",
+                success: function(response) {
+                    for(var i = 0; i < response[1].length; i++) {
+                        infowindow.setContent(infowindow.getContent()+'<li><a href="' + response[3][i] + '">'+response[1][i]+'</a></li>');
+                    }
                 }
-            }
-            // Use streetview service to get the closest streetview image within
-            // 50 meters of the markers position
-            streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-            // Open the infowindow on the correct marker.
+            });
             infowindow.open(map, marker);
+            // Make sure the marker property is cleared if the infowindow is closed.
+            infowindow.addListener('closeclick',function(){
+                infowindow.setMarker = null;
+            });
         }
     }
     // Boolean that holds marker's visibility state
@@ -349,51 +354,6 @@ var ViewModel = function () {
         map.fitBounds(bounds);
     }
 
-    // This is the PLACE DETAILS search - it's the most detailed so it's only
-    // executed when a marker is selected, indicating the user wants more
-    // details about that place.
-    function getPlacesDetails(marker, infowindow) {
-      var service = new google.maps.places.PlacesService(map);
-      service.getDetails({
-        placeId: marker.id
-      }, function(place, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          // Set the marker property on this infowindow so it isn't created again.
-          infowindow.marker = marker;
-          var innerHTML = '<div>';
-          if (place.name) {
-            innerHTML += '<strong>' + place.name + '</strong>';
-          }
-          if (place.formatted_address) {
-            innerHTML += '<br>' + place.formatted_address;
-          }
-          if (place.formatted_phone_number) {
-            innerHTML += '<br>' + place.formatted_phone_number;
-          }
-          if (place.opening_hours) {
-            innerHTML += '<br><br><strong>Hours:</strong><br>' +
-                place.opening_hours.weekday_text[0] + '<br>' +
-                place.opening_hours.weekday_text[1] + '<br>' +
-                place.opening_hours.weekday_text[2] + '<br>' +
-                place.opening_hours.weekday_text[3] + '<br>' +
-                place.opening_hours.weekday_text[4] + '<br>' +
-                place.opening_hours.weekday_text[5] + '<br>' +
-                place.opening_hours.weekday_text[6];
-          }
-          if (place.photos) {
-            innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
-                {maxHeight: 100, maxWidth: 200}) + '">';
-          }
-          innerHTML += '</div>';
-          infowindow.setContent(innerHTML);
-          infowindow.open(map, marker);
-          // Make sure the marker property is cleared if the infowindow is closed.
-          infowindow.addListener('closeclick', function() {
-            infowindow.marker = null;
-          });
-        }
-      });
 
-    }
 };
 
