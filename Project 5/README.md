@@ -13,11 +13,11 @@ Open `index.html` on your browser, and check that you've an active internet conn
 
 ## Preview
 
-![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview01.png)
+![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview01.PNG)
 
-![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Preview02.png)
+![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview02.png)
 
-![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Preview03.png)
+![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview03.png)
 
-![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%204/Preview/Preview04.png)
+![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview04.png)
 
