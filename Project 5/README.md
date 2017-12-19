@@ -4,6 +4,7 @@ by Mostafa Elsheikh, in fulfillment of Udacity's <i class="icon-cog"></i> **[Ful
 ## About
 
 Single Page Application that shows places you would like to visit in Cairo and shows wiki articles about those places. This app uses Google Maps API, and Wikipedia API.
+User can search for any location on the whole map. It can filter saved places and show them only on map. It is responsive on mobile as well.
 
 ## Getting Started
 
