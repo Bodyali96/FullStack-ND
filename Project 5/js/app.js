@@ -267,18 +267,18 @@ var ViewModel = function () {
         isActiveMarkers = true;
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(map);
-            bounds.extend(markers[i].position);
-        }
+        self.placeList().forEach(function (placeItem) {
+            placeItem.marker.setMap(map);
+            bounds.extend(placeItem.marker.position);
+        });
         map.fitBounds(bounds);
     }
     // This function will loop through the listings and hide them all.
     function hideMarkers() {
         isActiveMarkers = false;
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(null);
-        }
+        self.placeList().forEach(function (placeItem) {
+            placeItem.marker.setMap(null);
+        });
     }
 
     // This function takes in a COLOR, and then creates a new marker
@@ -297,12 +297,12 @@ var ViewModel = function () {
 
     // This function fires when the user selects a searchbox picklist item.
     // It will do a nearby search using the selected query string or place.
-    function searchBoxPlaces(searchBox) {
-        hideMarkers(placeMarkers);
-        var places = searchBox.getPlaces();
+    function searchBoxPlaces() {
+        hideMarkers();
+        var places = self.searchBox.getPlaces();
         // For each place, get the icon, name and location.
         createMarkersForPlaces(places);
-        if (places.length) {
+        if (!places.length) {
           window.alert('We did not find any places matching that search!');
         }
     }
@@ -311,7 +311,7 @@ var ViewModel = function () {
     // It will do a nearby search using the entered query string or place.
     function textSearchPlaces() {
         var bounds = map.getBounds();
-        hideMarkers(placeMarkers);
+        hideMarkers();
         var placesService = new google.maps.places.PlacesService(map);
         placesService.textSearch({
           query: document.getElementById('places-search').value,
@@ -344,11 +344,7 @@ var ViewModel = function () {
             position: place.geometry.location,
             id: place.id
           });
-          // If a marker is clicked, do a place details search on it in the next function.
-          marker.addListener('click', function() {
-            getPlacesDetails(this, place);
-          });
-          placeMarkers.push(marker);
+
           if (place.geometry.viewport) {
             // Only geocodes have viewport.
             bounds.union(place.geometry.viewport);

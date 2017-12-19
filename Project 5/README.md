@@ -22,3 +22,5 @@ Open `index.html` on your browser, and check that you've an active internet conn
 
 ![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview04.PNG)
 
+![Stickout](https://github.com/Sasa94s/FullStack-ND/blob/master/Project%205/Preview/Preview05.PNG)
+
