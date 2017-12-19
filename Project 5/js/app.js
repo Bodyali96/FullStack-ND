@@ -1,11 +1,9 @@
-
+'use strict';
 var map;
 
 // Create a new blank array for all the listing markers.
 var markers = [];
-// Create placemarkers array to use in multiple functions to have control
-// over the number of places that show.
-var placeMarkers = [];
+
 
 var styles = [
     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -88,6 +86,22 @@ var styles = [
     }
 ];
 
+// These are the real estate listings that will be shown to the user.
+// Normally we'd have these in a database instead.
+var locations = [
+    {title: 'Tahrir Square Egypt', location: {lat: 30.044420, lng: 31.235712}},
+    {title: 'Cairo Tower', location: {lat: 30.046195, lng: 31.224333}},
+    {title: 'Mokhtar Altitch Stadium', location: {lat: 30.045043, lng: 31.223531}},
+    {title: 'Egyptian Museum', location: {lat: 30.047848, lng: 31.233637}},
+    {title: 'Ethnographic Museum', location: {lat: 30.041198, lng: 31.235847}},
+    {title: 'Mahmoud Mukhtar Museum', location: {lat: 30.040734, lng: 31.222866}},
+    {title: 'Beit El Umma Museum', location: {lat: 30.038133, lng: 31.237478}},
+    {title: 'Cairo Opera House', location: {lat: 30.042684, lng: 31.223981}},
+    {title: 'Al Ahly Sports Club', location: {lat: 30.044913, lng: 31.222372}},
+    {title: 'The Great Pyramid at Giza', location: {lat: 29.979249, lng: 31.134181}}
+];
+
+
 function initMap() {
     // Constructor creates a new map - only center and zoom required
     map = new google.maps.Map(document.getElementById('map'), {
@@ -96,8 +110,23 @@ function initMap() {
         styles: styles,
         mapTypeControl: false
     });
+
     ko.applyBindings(new ViewModel());
 }
+
+// Alert the user if google maps isn't working
+function googleError() {
+     window.alert('Maps is not loading. Please try refreshing the page later.');
+}
+
+var Place = function (data) {
+    this.title = ko.observable(data.title);
+    this.location = ko.observable(data.location);
+    this.marker = ko.observable();
+    this.url = ko.observable('');
+    this.wikiTitles = ko.observableArray([]);
+    this.wikiURLs = ko.observableArray([]);
+};
 
 var ViewModel = function () {
     // Make this accessible
@@ -110,99 +139,103 @@ var ViewModel = function () {
         self.isActiveSidebar(!self.isActiveSidebar());
     };
 
+    self.placeList = ko.observableArray([]);
+
+    locations.forEach(function (placeItem) {
+        self.placeList.push(new Place(placeItem));
+    });
     // Create a searchbox in order to execute a places search
-    var searchBox = new google.maps.places.SearchBox(
+    self.searchBox = new google.maps.places.SearchBox(
         document.getElementById('places-search'));
     // Bias the searchbox to within the bounds of the map.
-    searchBox.setBounds(map.getBounds());
+    self.searchBox.setBounds(map.getBounds());
 
-    // These are the real estate listings that will be shown to the user.
-    // Normally we'd have these in a database instead.
-    var locations = [
-        {title: 'Tahrir Square Egypt', location: {lat: 30.044420, lng: 31.235712}},
-        {title: 'Cairo Tower', location: {lat: 30.046195, lng: 31.224333}},
-        {title: 'Mokhtar Altitch Stadium', location: {lat: 30.045043, lng: 31.223531}},
-        {title: 'Egyptian Museum', location: {lat: 30.047848, lng: 31.233637}},
-        {title: 'Ethnographic Museum', location: {lat: 30.041198, lng: 31.235847}},
-        {title: 'Mahmoud Mukhtar Museum', location: {lat: 30.040734, lng: 31.222866}},
-        {title: 'Beit El Umma Museum', location: {lat: 30.038133, lng: 31.237478}},
-        {title: 'Cairo Opera House', location: {lat: 30.042684, lng: 31.223981}},
-        {title: 'Al Ahly Sports Club', location: {lat: 30.044913, lng: 31.222372}},
-        {title: 'The Great Pyramid at Giza', location: {lat: 29.979249, lng: 31.134181}},
-    ];
-
-    var largeInfowindow = new google.maps.InfoWindow();
+    self.largeInfowindow = new google.maps.InfoWindow();
 
     // Style the markers a bit. This will be our listing marker icon.
-    var defaultIcon = makeMarkerIcon('0091ff');
+    self.defaultIcon = makeMarkerIcon('0091ff');
 
     // Create a "highlighted location" marker color for when the user
     // mouses over the marker.
-    var highlightedIcon = makeMarkerIcon('FFFF24');
+    self.highlightedIcon = makeMarkerIcon('FFFF24');
 
-    var bounds = new google.maps.LatLngBounds();
+    self.bounds = new google.maps.LatLngBounds();
 
+    // Initialize marker
+    var marker;
+
+    // Return infowindow content needed to be set
+    self.populateInfoWindow = function (placeItem) {
+        var optionsBox = '<p>'+placeItem.marker.title+'</p><ul>';
+        for(var i = 0; i < placeItem.wikiURLs().length; i++) {
+            optionsBox += '<li><a href="'+placeItem.wikiURLs()[i]+'">'+placeItem.wikiTitles()[i]+'</a></li>';
+        }
+        optionsBox += '</ul>';
+        return optionsBox;
+    };
 
     // The following group uses the location array to create an array of markers on initialize.
-    for(var i = 0; i < locations.length; i++){
+    self.placeList().forEach(function (placeItem) {
         // Get the position from the location array.
-        var position = locations[i].location;
-        var title = locations[i].title;
+        var position = placeItem.location();
+        var title = placeItem.title();
+
         // Create a marker per location, and put into markers array.
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             map: map,
             position: position,
             title: title,
-            icon: defaultIcon,
-            animation: google.maps.Animation.DROP,
-            id: i
+            icon: self.defaultIcon,
+            animation: google.maps.Animation.DROP
+        });
+
+        placeItem.marker = marker;
+
+        var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
+        // Handling response error
+        var wikiTimeout = setTimeout(function() {
+            placeItem.wikiTitles.push("failed to get Wikipedia resources");
+        }, 8000);
+        $.ajax({
+            url: wikiURL,
+            dataType: "jsonp",
+            success: function(response) {
+                for(var i = 0; i < response[1].length; i++) {
+                    placeItem.wikiTitles.push(response[1][i]);
+                    placeItem.wikiURLs.push(response[3][i]);
+                }
+                clearTimeout(wikiTimeout);
+            }
         });
 
         // Extend the boundaries of the map for each marker
-        bounds.extend(marker.position);
-        // Create an onclick event to open an infowindow at each marker.
-        var markerClick = function() {
-            populateInfoWindow(this, largeInfowindow);
-            for (var i = 0; i < markers.length; i++){
-                markers[i].setAnimation(null);
-            }
-            this.setAnimation(google.maps.Animation.BOUNCE);
-        };
-        marker.addListener('click', markerClick);
+        self.bounds.extend(placeItem.marker.position);
+
+        placeItem.marker.addListener('click', function () {
+            self.largeInfowindow.open(map, this);
+            self.largeInfowindow.setContent(self.populateInfoWindow(placeItem));
+            placeItem.marker.setAnimation(google.maps.Animation.BOUNCE);
+            // Stop bounce animation after 0.7sec
+            setTimeout(function () {
+                placeItem.marker.setAnimation(null);
+            }, 700);
+        });
         // Two event listeners - one for mouseover, one for mouseout,
         // to change the colors back and forth.
-        marker.addListener('mouseover', function () {
-            this.setIcon(highlightedIcon);
+        placeItem.marker.addListener('mouseover', function () {
+            this.setIcon(self.highlightedIcon);
         });
-        marker.addListener('mouseout', function () {
-            this.setIcon(defaultIcon);
+        placeItem.marker.addListener('mouseout', function () {
+            this.setIcon(self.defaultIcon);
         });
-        // Push the marker to our array of markers.
-        markers.push(marker);
-        // Getting sidebar unordered list
-        var sidebar = document.getElementById('sidebar-list');
-        // Creating list item for each marker
-        var marker_li = document.createElement('li');
-        // Creating anchor element
-        var marker_anch = document.createElement('a');
-        marker_anch.setAttribute('href', '#');
-        // Setting Text content of each anchor element to marker title
-        marker_anch.textContent = marker.title;
-        // Putting anchor element inside list item
-        marker_li.appendChild(marker_anch);
-        // Click event for list item to select each marker
-        marker_li.addEventListener('click', function (markerCopy) {
-            return function () {
-                populateInfoWindow(markerCopy, largeInfowindow);
-                for (var j = 0; j < markers.length; j++){
-                    markers[j].setAnimation(null);
-                }
-                markerCopy.setAnimation(google.maps.Animation.BOUNCE);
-            }
-        }(marker));
-        // Putting list item into sidebar unordered list
-        sidebar.appendChild(marker_li);
-    }
+
+
+    });
+
+    // Focus on It's marker
+    self.showInfoWindow = function (placeItem) {
+            google.maps.event.trigger(placeItem.marker, 'click');
+    };
 
     // Change Text of button upon next action
     document.getElementById('toggle-markers').addEventListener('click', function () {
@@ -212,7 +245,7 @@ var ViewModel = function () {
 
     // Listen for the event fired when the user selects a prediction from the
     // picklist and retrieve more details for that place.
-    searchBox.addListener('places_changed', function() {
+    self.searchBox.addListener('places_changed', function() {
       searchBoxPlaces(this);
     });
 
@@ -220,34 +253,6 @@ var ViewModel = function () {
     // "go" more details for that place.
     document.getElementById('go-places').addEventListener('click', textSearchPlaces);
 
-    // This function populates the infowindow when the marker is clicked. We'll only allow
-    // one infowindow which will open at the marker that is clicked, and populate based
-    // on that markers position.
-    function populateInfoWindow(marker, infowindow) {
-        // Check to make sure the infowindow is not already opened on this marker.
-        if (infowindow.marker != marker) {
-            infowindow.marker = marker;
-
-            infowindow.setContent('<ul class="wiki"><li>' + marker.title + '</li></ul>');
-            var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
-            var wikiData = '';
-
-            $.ajax({
-                url: wikiURL,
-                dataType: "jsonp",
-                success: function(response) {
-                    for(var i = 0; i < response[1].length; i++) {
-                        infowindow.setContent(infowindow.getContent()+'<li><a href="' + response[3][i] + '">'+response[1][i]+'</a></li>');
-                    }
-                }
-            });
-            infowindow.open(map, marker);
-            // Make sure the marker property is cleared if the infowindow is closed.
-            infowindow.addListener('closeclick',function(){
-                infowindow.setMarker = null;
-            });
-        }
-    }
     // Boolean that holds marker's visibility state
     var isActiveMarkers = true;
     // This function checks whether Marker is shown or hidden and toggles it's visibility
@@ -297,7 +302,7 @@ var ViewModel = function () {
         var places = searchBox.getPlaces();
         // For each place, get the icon, name and location.
         createMarkersForPlaces(places);
-        if (places.length == 0) {
+        if (places.length) {
           window.alert('We did not find any places matching that search!');
         }
     }
@@ -354,6 +359,39 @@ var ViewModel = function () {
         map.fitBounds(bounds);
     }
 
+    // Filter markers per user input
+    // Credit http://codepen.io/prather-mcs/pen/KpjbNN?editors=001
+
+    // Array containing only the markers based on search
+    self.visible = ko.observableArray([]);
+
+    // All markers are visible by default before any user input
+    self.placeList().forEach(function (place) {
+        self.visible.push(place);
+    });
+
+    // Track user input
+    self.userInput = ko.observable('');
+
+    // If user input is included in the place name, make it and its marker visible
+    // Otherwise, remove the place & marker
+    self.filterMarkers = function () {
+        // Set all markers and places to not visible.
+        var searchInput = self.userInput().toLowerCase();
+        self.visible.removeAll();
+        self.placeList().forEach(function (place) {
+            place.marker.setVisible(false);
+            // Compare the name of each place to user input
+            // If user input is included in the name, set the place and marker as visible
+            if (place.title().toLowerCase().indexOf(searchInput) !== -1) {
+                self.visible.push(place);
+            }
+        });
+        // Show only typed markers on map
+        self.visible().forEach(function (place) {
+            place.marker.setVisible(true);
+        });
+    };
 
 };
 
