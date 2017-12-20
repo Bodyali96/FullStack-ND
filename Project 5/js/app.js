@@ -166,7 +166,23 @@ var ViewModel = function () {
 
     // Return infowindow content needed to be set
     self.populateInfoWindow = function (placeItem) {
-        var optionsBox = '<p>'+placeItem.marker.title+'</p><ul>';
+        var optionsBox = '<p>'+placeItem.marker.title+'</p>';
+
+        // If wikiTitles is empty then add "no messages found"
+        if(placeItem.wikiTitles().length === 0) {
+            optionsBox += '<p>No wiki articles found.</p>';
+            return optionsBox;
+        }
+
+        // If wikiURLs is empty then add failure message added
+        if(placeItem.wikiURLs().length === 0) {
+
+            optionsBox += '<p>'+placeItem.wikiTitles()[0]+'</p>';
+            return optionsBox;
+        }
+
+        // Adding list of wiki articles
+        optionsBox += '<ul>';
         for(var i = 0; i < placeItem.wikiURLs().length; i++) {
             optionsBox += '<li><a href="'+placeItem.wikiURLs()[i]+'">'+placeItem.wikiTitles()[i]+'</a></li>';
         }
@@ -201,13 +217,15 @@ var ViewModel = function () {
                 placeItem.wikiURLs.push(response[3][i]);
             }
         }).fail(function (jqXHR, textStatus) {
-            placeItem.wikiTitles.push("failed to get Wikipedia resources");
+            placeItem.wikiTitles.push("Failed to get Wikipedia resources");
         });
 
         // Extend the boundaries of the map for each marker
         self.bounds.extend(placeItem.marker.position);
 
         placeItem.marker.addListener('click', function () {
+            map.setZoom(16);
+            map.setCenter(placeItem.marker.getPosition());
             self.largeInfowindow.open(map, this);
             self.largeInfowindow.setContent(self.populateInfoWindow(placeItem));
             placeItem.marker.setAnimation(google.maps.Animation.BOUNCE);
@@ -244,10 +262,6 @@ var ViewModel = function () {
     self.searchBox.addListener('places_changed', function() {
       searchBoxPlaces(this);
     });
-
-    // Listen for the event fired when the user selects a prediction and clicks
-    // "go" more details for that place.
-    document.getElementById('go-places').addEventListener('click', textSearchPlaces);
 
     // Boolean that holds marker's visibility state
     var isActiveMarkers = true;
@@ -311,7 +325,7 @@ var ViewModel = function () {
 
     // This function firest when the user select "go" on the places search.
     // It will do a nearby search using the entered query string or place.
-    function textSearchPlaces() {
+    self.textSearchPlaces = function() {
         var bounds = map.getBounds();
         hideMarkers();
         var placesService = new google.maps.places.PlacesService(map);
@@ -323,7 +337,7 @@ var ViewModel = function () {
             createMarkersForPlaces(results);
           }
         });
-    }
+    };
 
 
     // This function creates markers for each place found in either places search.

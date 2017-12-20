@@ -25,7 +25,7 @@
             </div>
         </div>
     </nav>
-    <div id="wrapper" class="mt-5" data-bind="css: {'toggled' : isActiveSidebar}">
+    <aside id="wrapper" class="mt-5" data-bind="css: {'toggled' : isActiveSidebar}">
         <div id="sidebar-wrapper" class="container-fluid bg-dark">
             <div class="row mt-3">
                 <div class="col options-box">
@@ -37,7 +37,7 @@
                     <input class="form-control" id="places-search" data-bind="texInput: findInput" type="text" placeholder="Location">
                 </div>
                 <div class="col-3 offset-7">
-                    <button class="btn btn-warning" id="go-places">Search</button>
+                    <button class="btn btn-warning" id="go-places" data-bind="click: textSearchPlaces">Search</button>
                 </div>
             </form>
             <form class="row mt-2">
@@ -56,9 +56,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </aside>
 
-    <div id="map"></div>
+    <main id="map"></main>
 
 
     <script src="js/jquery-3.2.1.min.js"></script>
