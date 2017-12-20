@@ -1,6 +1,10 @@
 # Neighborhood Map Project: StickOut
 by Mostafa Elsheikh, in fulfillment of Udacity's <i class="icon-cog"></i> **[Full Stack Web Developer Nanodegree](https://www.udacity.com/course/nd004)**
 
+## Live Demo
+
+https://sasa94s.github.io/stickout/
+
 ## About
 
 Single Page Application that shows places you would like to visit in Cairo and shows wiki articles about those places. This app uses Google Maps API, and Wikipedia API.
