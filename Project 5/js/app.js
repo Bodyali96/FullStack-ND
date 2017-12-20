@@ -192,20 +192,16 @@ var ViewModel = function () {
         placeItem.marker = marker;
 
         var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title + '&format=json&callback=wikiCallback';
-        // Handling response error
-        var wikiTimeout = setTimeout(function() {
-            placeItem.wikiTitles.push("failed to get Wikipedia resources");
-        }, 8000);
         $.ajax({
             url: wikiURL,
-            dataType: "jsonp",
-            success: function(response) {
-                for(var i = 0; i < response[1].length; i++) {
-                    placeItem.wikiTitles.push(response[1][i]);
-                    placeItem.wikiURLs.push(response[3][i]);
-                }
-                clearTimeout(wikiTimeout);
+            dataType: "jsonp"
+        }).done(function (response) {
+            for(var i = 0; i < response[1].length; i++) {
+                placeItem.wikiTitles.push(response[1][i]);
+                placeItem.wikiURLs.push(response[3][i]);
             }
+        }).fail(function (jqXHR, textStatus) {
+            placeItem.wikiTitles.push("failed to get Wikipedia resources");
         });
 
         // Extend the boundaries of the map for each marker
@@ -238,10 +234,10 @@ var ViewModel = function () {
     };
 
     // Change Text of button upon next action
-    document.getElementById('toggle-markers').addEventListener('click', function () {
-        this.innerText = isActiveMarkers ? 'Show Markers' : 'Hide Markers';
-        toggleShowMarker();
-    });
+    // self.buttonText = ko.computed(function () {
+    //     return isActiveMarkers ? 'Show Markers' : 'Hide Markers';
+    // }, self);
+    self.buttonText = ko.observable('Hide Markers');
 
     // Listen for the event fired when the user selects a prediction from the
     // picklist and retrieve more details for that place.
@@ -256,15 +252,17 @@ var ViewModel = function () {
     // Boolean that holds marker's visibility state
     var isActiveMarkers = true;
     // This function checks whether Marker is shown or hidden and toggles it's visibility
-    function toggleShowMarker() {
+    self.toggleShowMarker = function() {
         if(isActiveMarkers)
             hideMarkers();
         else
             showMarkers();
-    }
+    };
     // This function will loop through the markers array and display them all.
     function showMarkers() {
         isActiveMarkers = true;
+        // Change button text to show next action
+        self.buttonText('Hide Markers');
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
         self.placeList().forEach(function (placeItem) {
@@ -276,6 +274,8 @@ var ViewModel = function () {
     // This function will loop through the listings and hide them all.
     function hideMarkers() {
         isActiveMarkers = false;
+        // Change button text to show next action
+        self.buttonText('Show Markers');
         self.placeList().forEach(function (placeItem) {
             placeItem.marker.setMap(null);
         });
@@ -307,6 +307,8 @@ var ViewModel = function () {
         }
     }
 
+    self.findInput = ko.observable('');
+
     // This function firest when the user select "go" on the places search.
     // It will do a nearby search using the entered query string or place.
     function textSearchPlaces() {
@@ -314,7 +316,7 @@ var ViewModel = function () {
         hideMarkers();
         var placesService = new google.maps.places.PlacesService(map);
         placesService.textSearch({
-          query: document.getElementById('places-search').value,
+          query: self.searchText,
           bounds: bounds
         }, function(results, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -354,6 +356,10 @@ var ViewModel = function () {
         }
         map.fitBounds(bounds);
     }
+
+    google.maps.event.addDomListener(window, 'resize', function() {
+      map.fitBounds(self.bounds); // `bounds` is a `LatLngBounds` object
+    });
 
     // Filter markers per user input
     // Credit http://codepen.io/prather-mcs/pen/KpjbNN?editors=001
