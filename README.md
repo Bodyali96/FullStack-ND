@@ -1,4 +1,7 @@
-# Udacity Full Stack Nanodegree Projects
+# Udacity Full Stack Web Developer Nanodegree
+
+My project work for the [Full Stack Web Developer Nanodegree by Udacity](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004).
+
 
 ![Certificate](https://github.com/Sasa94s/FullStack-ND/blob/master/FSND_Certificate.PNG)
 
