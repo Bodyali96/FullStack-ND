@@ -1,5 +1,7 @@
 # Udacity Full Stack Nanodegree Projects
 
+![Certificate](https://github.com/Sasa94s/FullStack-ND/blob/master/FSND_Certificate.PNG)
+
 This is a collection of projects required to complete Udacity [Full Stack Web Developer Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004).
 
 * [Project 1 - **Movie Trailer Website**: Fresh Potatoes](https://github.com/Sasa94s/FullStack-ND/tree/master/Project%201)
